@@ -30,8 +30,8 @@
 
     <licenses>
         <license>
-            <name>GNU General Public License, version 2</name>
-            <url>http://opensource.org/licenses/gpl-2.0</url>
+            <name>The BSD 3-Clause License</name>
+            <url>http://www.opensource.org/licenses/BSD-3-Clause</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -47,29 +47,15 @@
         <project.build.source>1.6</project.build.source>
         <project.build.target>1.6</project.build.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <parboiled.version>1.1.7</parboiled.version>
+        <antlr.version>4.5.3</antlr.version>
+        <contact.email>tech@evolvedbinary.com</contact.email>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.parboiled</groupId>
-            <artifactId>parboiled-java</artifactId>
-            <version>${parboiled.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.parboiled</groupId>
-            <artifactId>parboiled-core</artifactId>
-            <version>${parboiled.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations-java5</artifactId>
-            <version>15.0</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>${antlr.version}</version>
         </dependency>
     </dependencies>
 
@@ -78,14 +64,14 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>2.11</version>
+                <version>3.0</version>
                 <configuration>
-                    <header>GPL2-template.txt</header>
+                    <header>com/mycila/maven/plugin/license/templates/BSD-3.txt</header>
                     <failIfMissing>true</failIfMissing>
                     <aggregate>true</aggregate>
                     <strictCheck>true</strictCheck>
                     <properties>
-                        <organization>${project.organization.name}</organization>
+                        <owner>${project.organization.name} &lt;${contact.email}&gt;</owner>
                     </properties>
                     <excludes>
                         <exclude>**/pom.xml</exclude>
@@ -93,6 +79,9 @@
                         <exclude>**/LICENSE</exclude>
                         <exclude>src/main/resources/**</exclude>
                     </excludes>
+                    <mapping>
+                        <g4>SLASHSTAR_STYLE</g4>
+                    </mapping>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
                 <executions>
@@ -118,6 +107,22 @@
                         <configuration>
                             <failOnWarning>true</failOnWarning>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>${antlr.version}</version>
+                <executions>
+                    <execution>
+                        <id>antlr</id>
+                        <configuration>
+                            <visitor>true</visitor>
+                        </configuration>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

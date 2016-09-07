@@ -1,12 +1,12 @@
 Corpus Query Language Parser
 ============================
-[![Build Status](https://travis-ci.org/exquery/corpusql-parser.png?branch=master)](https://travis-ci.org/exquery/corpusql-parser) [![Java 6+](https://img.shields.io/badge/java-8+-blue.svg)](http://java.oracle.com) [![License](https://img.shields.io/badge/license-GPL%202-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![Build Status](https://travis-ci.org/exquery/corpusql-parser.png?branch=master)](https://travis-ci.org/exquery/corpusql-parser) [![Java 6+](https://img.shields.io/badge/java-6+-blue.svg)](http://java.oracle.com) [![License](https://img.shields.io/badge/license-BSD-blue.svg)](http://opensource.org/licenses/BSD-3-Clause)
 
-This library implements a Corpus Query Language Parser in Java 1.6, using [Parboiled](https://github.com/sirthias/parboiled).
+This library implements a Corpus Query Language Parser in Java 1.6, using [Antlr v4](http://www.antlr.org/).
 
-The gramar definition for this parser was taken by running `jjdoc` against the javacc [`cql`](https://raw.githubusercontent.com/INL/BlackLab/master/core/src/main/javacc/nl/inl/blacklab/queryParser/corpusql/cql.jj) grammar from the [Institute of Dutch Lexicology](http://www.inl.nl/) [BlackLab](https://github.com/INL/BlackLab) project. 
+As no offical Corpus Query Language specification is available, the gramar definition for this parser was derived from running `jjdoc` against the javacc [`cql`](https://raw.githubusercontent.com/INL/BlackLab/master/core/src/main/javacc/nl/inl/blacklab/queryParser/corpusql/cql.jj) grammar from the [Institute of Dutch Lexicology](http://www.inl.nl/) [BlackLab](https://github.com/INL/BlackLab) project. 
 
-The parser generates an AST (Abstract Syntax Tree) which you can then use in your own application for whatever you wish. The class [CorpusQLUtil](https://github.com/exquery/corpusql-parser/blob/master/src/main/java/com/evolvedbinary/corpusql/parser/CorpusQLUtil.java) shows how the parser can be used. You can also execute `CorpusQLUtil` as an application if you want to understand the node-tree produced by the parser.
+The parser generates an AST (Abstract Syntax Tree) which you can then use in your own application for whatever you wish. The class [Main](https://github.com/exquery/corpusql-parser/blob/master/src/main/java/com/evolvedbinary/cql/parser/Main.java) shows how the parser can be used. You can also execute `Main` as an application if you want to understand the node-tree produced by the parser.
 
 
 Obtaining
