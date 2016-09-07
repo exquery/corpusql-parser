@@ -23,6 +23,10 @@ The [compiled artifact](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.ev
 If you are a Scala, Groovy or Clojure person then you can still use the artifact from Maven Central with your favourite build tool, however I will assume you know what you're doing ;-)
 
 
+Example
+-------
+An example of this parser being used in another application is the [Corpus Query Language Module for eXist-db](https://github.com/bcdh/cql-module); Which shows how to traverse the AST for a custom application, in this specific case generating an XML vocabulary of Corpus Query Language.
+
 Future Work
 -----------
 * Provide some tutorials or better documentation
