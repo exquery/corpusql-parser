@@ -1,6 +1,6 @@
 Corpus Query Language Parser
 ============================
-[![Build Status](https://travis-ci.org/exquery/corpusql-parser.png?branch=master)](https://travis-ci.org/exquery/corpusql-parser) [![Java 6+](https://img.shields.io/badge/java-6+-blue.svg)](http://java.oracle.com) [![License](https://img.shields.io/badge/license-BSD-blue.svg)](http://opensource.org/licenses/BSD-3-Clause)
+[![Build Status](https://github.com/exquery/corpusql-parser/actions/workflows/ci.yml/badge.svg)](https://github.com/exquery/corpusql-parser/actions/workflows/ci.yml) [![Java 8+](https://img.shields.io/badge/java-8+-4c7e9f.svg)](http://java.oracle.com) [![License](https://img.shields.io/badge/license-BSD-blue.svg)](http://opensource.org/licenses/BSD-3-Clause)
 
 This library implements a Corpus Query Language Parser in Java 1.6, using [Antlr v4](http://www.antlr.org/).
 
