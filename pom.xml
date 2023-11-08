@@ -44,8 +44,8 @@
   </scm>
 
     <properties>
-        <project.build.source>1.6</project.build.source>
-        <project.build.target>1.6</project.build.target>
+        <project.build.source>1.8</project.build.source>
+        <project.build.target>1.8</project.build.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <antlr.version>4.9.2</antlr.version>
         <contact.email>tech@evolvedbinary.com</contact.email>
@@ -64,7 +64,7 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>3.0</version>
+                <version>4.3</version>
                 <configuration>
                     <header>com/mycila/maven/plugin/license/templates/BSD-3.txt</header>
                     <failIfMissing>true</failIfMissing>
@@ -97,7 +97,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.6.1</version>
                 <executions>
                     <execution>
                         <id>analyze</id>
@@ -142,7 +142,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>${project.build.source}</source>
                     <target>${project.build.target}</target>
@@ -152,7 +152,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -178,7 +178,7 @@
                 <!-- Attach source jars -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -210,12 +210,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>3.1.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>3.0.1</version>
                 <configuration>
                     <mavenExecutorId>forked-path</mavenExecutorId> <!-- avoid a bug with GPG plugin hanging http://jira.codehaus.org/browse/MGPG-9 -->
                     <autoVersionSubmodules>true</autoVersionSubmodules>
