@@ -26,7 +26,8 @@
  */
 package com.evolvedbinary.cql.parser;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -50,9 +51,9 @@ public class Main {
      * @throws IOException is an error occurs parsing the input
      */
     public static void main(final String args[]) throws IOException {
-        final ANTLRInputStream is = new ANTLRInputStream(args[0]);
+        final CodePointCharStream charStream = CharStreams.fromString(args[0]);
 
-        final CorpusQLLexer lexer = new CorpusQLLexer(is);
+        final CorpusQLLexer lexer = new CorpusQLLexer(charStream);
         final CommonTokenStream tokens = new CommonTokenStream(lexer);
         final CorpusQLParser parser = new CorpusQLParser(tokens);
 
