@@ -16,7 +16,7 @@ The [compiled artifact](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.ev
 <dependency>
     <groupId>com.evolvedbinary.cql</groupId>
     <artifactId>corpusql-parser</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.2.0-SNAPSHOT</version>
 </dependency>
 ```
 
