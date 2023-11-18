@@ -42,7 +42,12 @@ public class Main {
 
     /**
      * Expects a Corpus Query Language expression as arg[0]
-     * and then prints the parse tree
+     * and then prints the parse tree.
+     *
+     * @param args any program arguments, first argument
+     *             is expected to be a String to parse.
+     *
+     * @throws IOException is an error occurs parsing the input
      */
     public static void main(final String args[]) throws IOException {
         final ANTLRInputStream is = new ANTLRInputStream(args[0]);
