@@ -66,23 +66,26 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>4.3</version>
                 <configuration>
-                    <header>com/mycila/maven/plugin/license/templates/BSD-3.txt</header>
                     <failIfMissing>true</failIfMissing>
-                    <aggregate>true</aggregate>
                     <strictCheck>true</strictCheck>
-                    <properties>
-                        <owner>${project.organization.name} &lt;${contact.email}&gt;</owner>
-                    </properties>
-                    <excludes>
-                        <exclude>**/pom.xml</exclude>
-                        <exclude>**/README.md</exclude>
-                        <exclude>**/LICENSE</exclude>
-                        <exclude>src/main/resources/**</exclude>
-                    </excludes>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                     <mapping>
                         <g4>SLASHSTAR_STYLE</g4>
                     </mapping>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <licenseSets>
+                        <licenseSet>
+                            <header>com/mycila/maven/plugin/license/templates/BSD-3.txt</header>
+                            <properties>
+                                <owner>${project.organization.name} &lt;${contact.email}&gt;</owner>
+                            </properties>
+                            <excludes>
+                                <exclude>**/pom.xml</exclude>
+                                <exclude>**/README.md</exclude>
+                                <exclude>**/LICENSE</exclude>
+                                <exclude>src/main/resources/**</exclude>
+                            </excludes>
+                        </licenseSet>
+                    </licenseSets>
                 </configuration>
                 <executions>
                     <execution>
