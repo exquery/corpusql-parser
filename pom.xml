@@ -1,12 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
-
     <groupId>com.evolvedbinary.cql</groupId>
     <artifactId>corpusql-parser</artifactId>
     <version>1.2.0-SNAPSHOT</version>
@@ -155,7 +149,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.4.2</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -168,8 +162,9 @@
                             <Build-Tag>${build-tag}</Build-Tag>
                             <Git-Commit>${build-commit}</Git-Commit>
                             <Git-Commit-Abbrev>${build-commit-abbrev}</Git-Commit-Abbrev>
+                            <Git-Commit-Timestamp>${build-tstamp}</Git-Commit-Timestamp>
                             <Build-Version>${build-version}</Build-Version>
-                            <Build-Timestamp>${build-tstamp}</Build-Timestamp>
+                            <Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
                             <Source-Repository>${project.scm.connection}</Source-Repository>
                             <Description>${project.description}</Description>
                             <Implementation-URL>${project.url}</Implementation-URL>
@@ -178,10 +173,17 @@
                 </configuration>
             </plugin>
             <plugin>
-                <!-- Attach source jars -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <archive>
                         <manifest>
@@ -192,8 +194,9 @@
                             <Build-Tag>${build-tag}</Build-Tag>
                             <Git-Commit>${build-commit}</Git-Commit>
                             <Git-Commit-Abbrev>${build-commit-abbrev}</Git-Commit-Abbrev>
+                            <Git-Commit-Timestamp>${build-tstamp}</Git-Commit-Timestamp>
                             <Build-Version>${build-version}</Build-Version>
-                            <Build-Timestamp>${build-tstamp}</Build-Timestamp>
+                            <Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
                             <Source-Repository>${project.scm.connection}</Source-Repository>
                             <Description>${project.description}</Description>
                             <Implementation-URL>${project.url}</Implementation-URL>
@@ -202,10 +205,17 @@
                 </configuration>
             </plugin>
             <plugin>
-                <!-- Attach javadoc jars -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.3</version>
+                <version>3.11.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <archive>
                         <manifest>
@@ -216,8 +226,9 @@
                             <Build-Tag>${build-tag}</Build-Tag>
                             <Git-Commit>${build-commit}</Git-Commit>
                             <Git-Commit-Abbrev>${build-commit-abbrev}</Git-Commit-Abbrev>
+                            <Git-Commit-Timestamp>${build-tstamp}</Git-Commit-Timestamp>
                             <Build-Version>${build-version}</Build-Version>
-                            <Build-Timestamp>${build-tstamp}</Build-Timestamp>
+                            <Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
                             <Source-Repository>${project.scm.connection}</Source-Repository>
                             <Description>${project.description}</Description>
                             <Implementation-URL>${project.url}</Implementation-URL>
@@ -228,16 +239,35 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.1.1</version>
                 <configuration>
-                    <mavenExecutorId>forked-path</mavenExecutorId> <!-- avoid a bug with GPG plugin hanging http://jira.codehaus.org/browse/MGPG-9 -->
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <deploymentName>${project.artifactId}</deploymentName>
+                    <failOnBuildFailure>true</failOnBuildFailure>
+                    <waitUntil>validated</waitUntil>
                 </configuration>
             </plugin>
         </plugins>
