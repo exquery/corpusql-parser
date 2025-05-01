@@ -2,9 +2,9 @@ Corpus Query Language Parser
 ============================
 [![Build Status](https://github.com/exquery/corpusql-parser/actions/workflows/ci.yml/badge.svg)](https://github.com/exquery/corpusql-parser/actions/workflows/ci.yml) [![Java 8+](https://img.shields.io/badge/java-8+-4c7e9f.svg)](http://java.oracle.com) [![License](https://img.shields.io/badge/license-BSD-blue.svg)](http://opensource.org/licenses/BSD-3-Clause)
 
-This library implements a Corpus Query Language Parser in Java 1.6, using [Antlr v4](http://www.antlr.org/).
+This library implements a Corpus Query Language Parser in Java 1.8, using [Antlr v4](http://www.antlr.org/).
 
-As no offical Corpus Query Language specification is available, the gramar definition for this parser was derived from running `jjdoc` against the javacc [`cql`](https://raw.githubusercontent.com/INL/BlackLab/master/core/src/main/javacc/nl/inl/blacklab/queryParser/corpusql/cql.jj) grammar from the [Institute of Dutch Lexicology](http://www.inl.nl/) [BlackLab](https://github.com/INL/BlackLab) project. 
+As no official Corpus Query Language specification is available, the gramar definition for this parser was derived from running `jjdoc` against the javacc [`cql`](https://raw.githubusercontent.com/INL/BlackLab/master/core/src/main/javacc/nl/inl/blacklab/queryParser/corpusql/cql.jj) grammar from the [Institute of Dutch Lexicology](http://www.inl.nl/) [BlackLab](https://github.com/INL/BlackLab) project.
 
 The parser generates an AST (Abstract Syntax Tree) which you can then use in your own application for whatever you wish. The class [Main](https://github.com/exquery/corpusql-parser/blob/master/src/main/java/com/evolvedbinary/cql/parser/Main.java) shows how the parser can be used. You can also execute `Main` as an application if you want to understand the node-tree produced by the parser.
 
@@ -16,7 +16,7 @@ The [compiled artifact](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.ev
 <dependency>
     <groupId>com.evolvedbinary.cql</groupId>
     <artifactId>corpusql-parser</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.3.0-SNAPSHOT</version>
 </dependency>
 ```
 
