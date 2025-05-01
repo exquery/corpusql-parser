@@ -42,7 +42,7 @@
         <project.build.target>1.8</project.build.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- NOTE(AR) Antlr 4.9.3 is the last version in the 4.x.x line that supports Java 8 -->
-        <antlr.version>4.9.3</antlr.version>
+        <antlr.version>4.13.2</antlr.version>
         <contact.email>tech@evolvedbinary.com</contact.email>
     </properties>
 
